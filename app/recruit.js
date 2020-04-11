@@ -306,7 +306,7 @@ function sendLeagueMatch(msg, txt, l_args) {
             "https://cdn.glitch.com/4ea6ca87-8ea7-482c-ab74-7aee445ea445%2Fleague.png";
     }
 
-    msg.guild.channelsfind("id", "698352312309252104").send(txt, {
+    msg.guild.channels.find("id", "698352312309252104").send(txt, {
         embed: {
             author: {
                 name: "リーグマッチ",
