@@ -11,10 +11,9 @@ function handleHelp(msg) {
         msg.channel.send('', {
             embed: {
                 author: {
-                    name: 'ikabu_botの使い方(2/2)',
-                    icon_url: 'https://cdn.glitch.com/4ea6ca87-8ea7-482c-ab74-7aee445ea445%2Fthumbnails%2Fbukichi.jpg',
+                    name: 'ねずこちゃんの使い方(2/2)',
                 },
-                title: 'ikabu_botの使い方(2/2)',
+                title: 'ねずこちゃんの使い方(2/2)',
                 color: 0x1bc2a5,
                 fields: [{
                         name: 'ステージ情報を表示[now / next / nawabari / run]',
@@ -60,10 +59,9 @@ function handleHelp(msg) {
         msg.channel.send('', {
             embed: {
                 author: {
-                    name: 'ikabu_botの使い方(1/2)',
-                    icon_url: 'https://cdn.glitch.com/4ea6ca87-8ea7-482c-ab74-7aee445ea445%2Fthumbnails%2Fbukichi.jpg',
+                    name: 'ねずこちゃんの使い方(1/2)',
                 },
-                title: 'ikabu_botの使い方(1/2)',
+                title: 'ねずこちゃんの使い方(1/2)',
                 color: 0x1bc2a5,
                 fields: [{
                         name: 'botのコメンド一覧を表示',
