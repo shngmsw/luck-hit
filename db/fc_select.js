@@ -19,7 +19,7 @@ var selectValue = function (condition) {
 
 async function getFC(id, msg, name) {
     var condition = { user_id: id };
-    var result = "なんかエラーでし。。。";
+    var result = "なんかエラーです。。。";
     return result = await selectValue(id).then(function (result) {
         console.log('Success:', result.code);
         return result.code;
