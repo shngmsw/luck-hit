@@ -229,35 +229,35 @@ function handleRecruit(msg) {
     }
 
     if (msg.content.startsWith("fn")) {
-        sendOtherGamesRecruite(msg, "フォートナイト", "");
+        sendOtherGamesRecruite(msg, "フォートナイト", "https://cdn.glitch.com/601b1b2b-47c9-4186-9231-d34a81427096%2Fthumbnails%2Ffortnite.jpg");
     }
 
     if (msg.content.startsWith("mk")) {
-        sendOtherGamesRecruite(msg, "マリオカート", "");
+        sendOtherGamesRecruite(msg, "マリオカート", "https://cdn.glitch.com/601b1b2b-47c9-4186-9231-d34a81427096%2Fthumbnails%2Fmariokart.png");
     }
 
     if (msg.content.startsWith("mc")) {
-        sendOtherGamesRecruite(msg, "マインクラフト", "");
+        sendOtherGamesRecruite(msg, "マインクラフト", "https://cdn.glitch.com/601b1b2b-47c9-4186-9231-d34a81427096%2Fminecraft.png");
     }
 
     if (msg.content.startsWith("oc")) {
-        sendOtherGamesRecruite(msg, "オーバークロック2", "");
+        sendOtherGamesRecruite(msg, "オーバークック2", "https://cdn.glitch.com/601b1b2b-47c9-4186-9231-d34a81427096%2Fthumbnails%2Fovercook.png");
     }
 
     if (msg.content.startsWith("sb")) {
-        sendOtherGamesRecruite(msg, "スマブラSP", "");
+        sendOtherGamesRecruite(msg, "スマブラSP", "https://cdn.glitch.com/601b1b2b-47c9-4186-9231-d34a81427096%2Fthumbnails%2Fsbsp.png");
     }
 
     if (msg.content.startsWith("mh")) {
-        sendOtherGamesRecruite(msg, "モンハンワールド", "");
+        sendOtherGamesRecruite(msg, "モンハンワールド", "https://cdn.glitch.com/601b1b2b-47c9-4186-9231-d34a81427096%2Fthumbnails%2Fmhw.jpg");
     }
 
     if (msg.content.startsWith("!apex")) {
-        sendOtherGamesRecruite(msg, "ApexLegends", "");
+        sendOtherGamesRecruite(msg, "ApexLegends", "https://cdn.glitch.com/601b1b2b-47c9-4186-9231-d34a81427096%2Fthumbnails%2Fapex.jpg");
     }
 
     if (msg.content.startsWith("!dbd")) {
-        sendOtherGamesRecruite(msg, "Dead by Daylight", "");
+        sendOtherGamesRecruite(msg, "Dead by Daylight", "https://cdn.glitch.com/601b1b2b-47c9-4186-9231-d34a81427096%2Fthumbnails%2Fdbd.jpg");
     }
 }
 
