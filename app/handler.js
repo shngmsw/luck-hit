@@ -9,7 +9,7 @@ const Discord = require("discord.js");
 const fc_insert = require("../db/fc_insert.js");
 const fc_select = require("../db/fc_select.js");
 const client = new Discord.Client();
-
+const gobi = "です！"
 module.exports = {
   call: call
 };
@@ -35,9 +35,6 @@ function call(msg) {
     case "vpick":
       handleVoicePick(msg);
       break;
-    case "poll":
-      handlePoll(msg);
-      break;
     case "rule":
       handleRule(msg);
       break;
@@ -53,7 +50,6 @@ function call(msg) {
     case "weapon":
       handleWeapon(msg);
       break;
-    case "fes":
     case "now":
     case "nou":
     case "next":
@@ -75,15 +71,6 @@ function call(msg) {
     case "help":
       help.handleHelp(msg);
       break;
-    case "!ban":
-      handleBan(msg);
-      break;
-    case "!bantest":
-      handleBantest(msg);
-      break;
-    case "!cc":
-      handleCreateChannel(msg);
-      break;
     case "fc":
       handleFriendCode(msg);
       break;
@@ -92,9 +79,6 @@ function call(msg) {
       break;
     case "stage":
       handleSF(msg);
-      break;
-    case "stageinfo":
-      handleStageInfo(msg);
       break;
   }
 }
@@ -139,7 +123,7 @@ function handleStageInfo(msg) {
       msg.channel.send(embedStr_gachi);
     } else {
         msg.channel.send(
-            "フレンドコード部屋に投稿がないか、投稿した日時が古すぎて検索できないでし"
+            "フレンドコード部屋に投稿がないか、投稿した日時が古すぎて検索できません"
         );
       console.log("なんかエラーでてるわ");
     }
@@ -209,10 +193,10 @@ async function handleKansen(msg, args) {
   var tmp_watching_list = cmb.toArray();
   var result = "";
   if (!common.isInteger(how_many_times) || how_many_times <= 0) {
-    msg.reply("1以上の整数じゃないとダメでし！");
+    msg.reply("1以上の整数じゃないとダメです");
     return;
   } else if (how_many_times > 20) {
-    msg.reply("20回未満じゃないとダメでし！");
+    msg.reply("20回未満じゃないとダメです");
     return;
   }
   
@@ -291,13 +275,13 @@ function handleTimer(msg, args) {
   var kazu = Number(args);
   var count = kazu;
   if (count <= 10 && count > 0 && common.isInteger(kazu)) {
-    msg.reply("タイマーを" + count + "分後にセットしたでし！");
+    msg.reply("タイマーを" + count + "分後にセットしました！");
     var countdown = function() {
       count--;
       if (count != 0) {
-        msg.reply("残り" + count + "分でし");
+        msg.reply("残り" + count + "分です");
       } else {
-        msg.reply("時間でし！");
+        msg.reply("時間です！");
       }
     };
     var id = setInterval(function() {
@@ -307,7 +291,7 @@ function handleTimer(msg, args) {
       }
     }, 60000);
   } else {
-    msg.reply("10分以内しか入力できないでし！正の整数以外もダメでし！");
+    msg.reply("10分以内しか入力できません！正の整数以外もダメです！");
   }
 }
 
@@ -325,7 +309,7 @@ function handlePick(msg) {
   } else {
     var picked = args[Math.floor(Math.random() * args.length)];
   }
-  msg.channel.send(picked + "でし！");
+  msg.channel.send(picked + gobi);
 }
 
 function handleVoicePick(msg) {
@@ -362,21 +346,21 @@ function handleRule(msg) {
   console.log(rules);
   if (msg.content.startsWith("rule stage")) {
     var stage = common.stage2txt(Math.floor(Math.random() * 23).toString());
-    msg.channel.send("`" + stage + "`でし！");
+    msg.channel.send("`" + stage + "`" + gobi);
   } else if (msg.content.startsWith("rule")) {
     var rule = rules[Math.floor(Math.random() * 4)];
-    msg.channel.send("`" + rule + "`でし！");
+    msg.channel.send("`" + rule + "`" + gobi);
   }
 }
 
 function handleSub(msg) {
   var sub = subweapons[Math.floor(Math.random() * 12)];
-  msg.channel.send("`" + sub + "`でし！");
+  msg.channel.send("`" + sub + "`" + gobi);
 }
 
 function handleSpecial(msg) {
   var special = specialweapons[Math.floor(Math.random() * 10)];
-  msg.channel.send("`" + special + "`でし！");
+  msg.channel.send("`" + special + "`" + gobi);
 }
 
 function handleBuki(msg) {
@@ -392,7 +376,7 @@ function handleBuki(msg) {
     let txt = 'ブキをランダムに抽選します\n\n'
       + 'n個のブキをランダムに選びます\n```\nbuki n\n例: buki 3```\n'
       + 'ブキを種類縛りでランダムに選びます\n```\nbuki 種類(' + Object.keys(bukiTypes).join(`・`) + ')\n例: buki シューター```\n'
-      + 'ブキのサブスペクイズを出題します\n```\nbuki quiz```';
+      ;
     msg.channel.send(txt);
   } else {
     if (bukiTypes[args[0]]) { // e.g. buki シューター
@@ -720,7 +704,7 @@ async function handleFriendCode(msg) {
     args.shift();
     // let id = args[0].replace('<@', '').replace('>','');
     let id = msg.mentions.users.first().id;
-    let ch = await msg.guild.channels.find("name", "自己紹介");
+    let ch = await msg.guild.channels.find("name", "フレコ置き場");
     let messages = await ch.fetchMessages({ limit: 100 }).catch(console.error);
     let list = await messages.filter(m => m.author.id === id);
     let result = list.map(function (value) {
@@ -755,7 +739,7 @@ async function handleFriendCode(msg) {
                     color: 0xf02d7d,
                     fields: [
                         {
-                            name: "自己紹介チャンネルより引用",
+                            name: "フレコ置き場チャンネルより引用",
                             value: r
                         },
                     ]
@@ -764,7 +748,7 @@ async function handleFriendCode(msg) {
         }
     } else {
         msg.channel.send(
-            "自己紹介チャンネルに投稿がないか、投稿した日時が古すぎて検索できないでし"
+            "フレコ置き場チャンネルに投稿がないか、投稿した日時が古すぎて検索できません"
         );
     }
 }
@@ -777,92 +761,10 @@ async function handleFriendCodeInsert(msg) {
     let code = args[0]
     console.log("handle_fc:" + id + "/" + code);
     fc_insert.insert(id, code);
-    msg.channel.send("覚えたでし！");
+    msg.channel.send("覚えました！");
 }
 
 
-function handleBan(msg) {
-  if (msg.member.hasPermission("BAN_MEMBERS")) {
-    var strCmd = msg.content.replace(/　/g, " ");
-    const args = strCmd.split(" ");
-    args.shift();
-    let members = [];
-    let id = args[0];
-    console.log(id);
-    msg.guild.members.forEach(member => {
-      if (id == member.id) {
-        members.push(member.user);
-      }
-    });
-    if (members.length <= 0) {
-      msg.guild.channels
-        .find("name", "banコマンド")
-        .send("そんなユーザーいないでし");
-    } else {
-      let reason =
-        "イカ部の管理人です。以下の理由によりイカ部から退部とさせていただきました。```" +
-        args[1] +
-        "```" +
-        "申し訳ありませんが、質問等は受け付けておりませんので、よろしくお願いいたします。";
-      console.log(members);
-      let user = members[0];
-      user.createDM().then(DMChannel => {
-        // We have now a channel ready.
-        // Send the message.
-        DMChannel.send(reason)
-          .then(() => {
-            // Message sent, time to kick.
-            msg.guild.ban(user.id, reason);
-          })
-          .then(() => {
-            console.log(user);
-            msg.guild.channels
-              .find("name", "banコマンド")
-              .send(
-                user.username + "さんを以下の理由によりBANしました。\n" + reason
-              );
-          });
-      });
-    }
-  }
-}
-
-function handleBantest(msg) {
-  var strCmd = msg.content.replace(/　/g, " ");
-  const args = strCmd.split(" ");
-  args.shift();
-  let members = [];
-  let id = args[0];
-  console.log(id);
-  msg.guild.members.forEach(member => {
-    if (id == member.id) {
-      members.push(member.user);
-    }
-  });
-  
-  msg.guild.fetchMember(msg.mentions.users.first())
-  .then(gmember => console.log(gmember.user.username))
-  .catch(console.error);
-  
-  msg.channel.send(members.username);
-}
-
-function handleCreateChannel(msg) {
-  if (msg.member.hasPermission("ADMINISTRATOR")) {
-    var strCmd = msg.content.replace(/　/g, " ");
-    const args = strCmd.split(" ");
-    args.shift();
-    var chName = args[0];
-    msg.guild
-      .createChannel(chName, { type: "text" })
-      .then(ch => msg.guild.setChannelPosition(ch, 99, false))
-      .catch(console.error);
-    msg.guild
-      .createChannel(chName, { type: "voice" })
-      .then(ch => msg.guild.setChannelPosition(ch, 90, false))
-      .catch(console.error);
-  }
-}
 const weaponsUrl = "https://stat.ink/api/v2/weapon";
 const rulesUrl = "https://stat.ink/api/v2/rule";
 const bukiTypes = {
