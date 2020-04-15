@@ -16,19 +16,19 @@ client.on("message", async msg => {
 client.on("guildMemberAdd", member => {
   const guild = member.guild;
   guild.channels
-    .find("id", "697625561329303615")
+    .find("name", "雑談")
     .send(
       `<@!${
       member.user.id
       }> さん、よろしくお願いします！\nまずは ${guild.channels.find(
-        "id",
-        "697811281477894144"
+        "name",
+        "luck-hit-心得🔰"
       )} をよく読んでから ${guild.channels.find(
-        "id",
-        "697667900579774535"
+        "name",
+        "自己紹介"
       )} で自己紹介して、フレンドコードを ${guild.channels.find(
-        "id",
-        "697690321412161566"
+        "name",
+        "フレコ置き場"
       )} に貼ってください\n\n${
       guild.name
       }のみんなが歓迎していますよ〜`

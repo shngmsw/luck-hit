@@ -376,7 +376,7 @@ function handleBuki(msg) {
     let txt = 'ブキをランダムに抽選します\n\n'
       + 'n個のブキをランダムに選びます\n```\nbuki n\n例: buki 3```\n'
       + 'ブキを種類縛りでランダムに選びます\n```\nbuki 種類(' + Object.keys(bukiTypes).join(`・`) + ')\n例: buki シューター```\n'
-      + 'ブキのサブスペクイズを出題します\n```\nbuki quiz```';
+      ;
     msg.channel.send(txt);
   } else {
     if (bukiTypes[args[0]]) { // e.g. buki シューター
@@ -704,7 +704,7 @@ async function handleFriendCode(msg) {
     args.shift();
     // let id = args[0].replace('<@', '').replace('>','');
     let id = msg.mentions.users.first().id;
-    let ch = await msg.guild.channels.find("name", "自己紹介");
+    let ch = await msg.guild.channels.find("name", "フレコ置き場");
     let messages = await ch.fetchMessages({ limit: 100 }).catch(console.error);
     let list = await messages.filter(m => m.author.id === id);
     let result = list.map(function (value) {
@@ -739,7 +739,7 @@ async function handleFriendCode(msg) {
                     color: 0xf02d7d,
                     fields: [
                         {
-                            name: "自己紹介チャンネルより引用",
+                            name: "フレコ置き場チャンネルより引用",
                             value: r
                         },
                     ]
@@ -748,7 +748,7 @@ async function handleFriendCode(msg) {
         }
     } else {
         msg.channel.send(
-            "自己紹介チャンネルに投稿がないか、投稿した日時が古すぎて検索できません"
+            "フレコ置き場チャンネルに投稿がないか、投稿した日時が古すぎて検索できません"
         );
     }
 }
