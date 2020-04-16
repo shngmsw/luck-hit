@@ -15,7 +15,7 @@ function handleRecruit(msg) {
         if (strCmd.match("〆")) {
             msg.react("👌");
             msg.guild.channels
-                .find("id", "698352312309252104")
+                .find("name", "会議室🧊")
                 .send("``` " + msg.author.username + "の募集 〆```");
         } else {
             request.get("https://splatoon2.ink/data/schedules.json", function (
@@ -39,7 +39,7 @@ function handleRecruit(msg) {
                         data.league[1].stage_b.image;
                     sendLeagueMatch(msg, txt, l_args);
                     msg.guild.channels
-                        .find("id", "698352312309252104")
+                        .find("name", "会議室🧊")
                         .send({ files: [stage_a, stage_b] });
                 } else {
                     msg.channel.send("なんかエラーでてるわ");
@@ -56,7 +56,7 @@ function handleRecruit(msg) {
         if (strCmd.match("〆")) {
             msg.react("👌");
             msg.guild.channels
-                .find("id", "698352312309252104")
+                .find("name", "会議室🧊")
                 .send("``` " + msg.author.username + "の募集 〆```");
         } else {
             request.get("https://splatoon2.ink/data/schedules.json", function (
@@ -80,7 +80,7 @@ function handleRecruit(msg) {
                         data.league[0].stage_b.image;
                     sendLeagueMatch(msg, txt, l_args);
                     msg.guild.channels
-                        .find("id", "698352312309252104")
+                        .find("name", "会議室🧊")
                         .send({ files: [stage_a, stage_b] });
                 } else {
                     msg.channel.send("なんかエラーでてるわ");
@@ -97,7 +97,7 @@ function handleRecruit(msg) {
         if (strCmd.match("〆")) {
             msg.react("👌");
             msg.guild.channels
-                .find("id", "698352312309252104")
+                .find("name", "会議室🧊")
                 .send("```" + msg.author.username + "の募集 〆```");
         } else {
             request.get("https://splatoon2.ink/data/schedules.json", function (
@@ -129,7 +129,7 @@ function handleRecruit(msg) {
                         common.stage2txt(data.regular[0].stage_b.id) +
                         "\n";
 
-                    msg.guild.channels.find("id", "698352312309252104").send(txt, {
+                   msg.guild.channels.find("name", "会議室🧊").send(txt, {
                         embed: {
                             author: {
                                 name: "レギュラーマッチ",
@@ -146,7 +146,7 @@ function handleRecruit(msg) {
                         }
                     });
                     msg.guild.channels
-                        .find("id", "698352312309252104")
+                        .find("name", "会議室🧊")
                         .send({ files: [stage_a, stage_b] });
                 } else {
                     msg.channel.send("なんかエラーでてるわ");
@@ -163,7 +163,7 @@ function handleRecruit(msg) {
         if (strCmd.match("〆")) {
             msg.react("👌");
             msg.guild.channels
-                .find("id", "698352312309252104")
+                .find("name", "会議室🧊")
                 .send("``` " + msg.author.username + "の募集 〆```");
         } else {
             request.get("https://splatoon2.ink/data/coop-schedules.json", function (
@@ -204,7 +204,7 @@ function handleRecruit(msg) {
                             common.weapon2txt(data.details[0].weapons[3].id) :
                             "？");
 
-                    msg.guild.channels.find("id", "698352312309252104").send(txt, {
+                    msg.guild.channels.find("name", "会議室🧊").send(txt, {
                         embed: {
                             author: {
                                 name: "SALMON RUN",
@@ -269,7 +269,7 @@ function sendOtherGamesRecruite(msg, gameName, imageUrl) {
     if (args[0] == "〆") {
         msg.react("👌");
         msg.guild.channels
-            .find("id", "698352312309252104")
+            .find("name", "会議室🧊")
             .send("``` " + msg.author.username + "の募集 〆```");
     } else {
         let txt =
@@ -277,7 +277,7 @@ function sendOtherGamesRecruite(msg, gameName, imageUrl) {
             msg.author.username +
             "が参加者募集中！\n";
         if (args.length > 0) txt += ">>> [参加条件] " + args.join(" ");
-        msg.guild.channels.find("id", "698352312309252104").send(txt, {
+        msg.guild.channels.find("name", "会議室🧊").send(txt, {
             files: [imageUrl]
         });
     }
@@ -306,7 +306,7 @@ function sendLeagueMatch(msg, txt, l_args) {
             "https://cdn.glitch.com/4ea6ca87-8ea7-482c-ab74-7aee445ea445%2Fleague.png";
     }
 
-    msg.guild.channels.find("id", "698352312309252104").send(txt, {
+    msg.guild.channels.find("name", "会議室🧊").send(txt, {
         embed: {
             author: {
                 name: "リーグマッチ",
